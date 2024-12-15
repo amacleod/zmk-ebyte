@@ -5,25 +5,32 @@
 #include <nordic/nrf52840_qiaa.dtsi>
 
 / {
-    model = "E73-2G4M08S1C";
-    compatible = "ebyte,e73-2g4m08s1c";
+  model = "E73-2G4M08S1C";
+  compatible = "ebyte,e73-2g4m08s1c";
 
-    chosen {
-        zephyr,code-partition = &code_partition;
-        zephyr,sram = &sram0;
-        zephyr,flash = &flash0;
-    };
+  chosen {
+    zephyr,code-partition = &code_partition;
+    zephyr,sram = &sram0;
+    zephyr,flash = &flash0;
+  };
 
 
-    &flash0 {
-      partitions {
-          compatible = "fixed-partitions";
-          #address-cells = <1>;
-          #size-cells = <1>;
+  &flash0 {
+    partitions {
+      compatible = "fixed-partitions";
+      #address-cells = <1>;
+      #size-cells = <1>;
 
-          sd_partition: partition@0 {
-              
-          };
+      sd_partition: partition@0 {
+        reg = <0x00000000 0x00026000>;
+      };
+      code_partition: partition@26000 {
+        reg = <0x00026000 0x000c6000>;
+      };
+
+      boot_partition: partition@f4000 {
+        reg = <0x000f4000 0x0000c000>;
       };
     };
+  };
 };
