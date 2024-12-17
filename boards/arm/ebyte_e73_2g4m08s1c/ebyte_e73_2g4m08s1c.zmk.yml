@@ -1,0 +1,11 @@
+---
+file_format: "1"
+id: ebyte_e73_2g4m08s1c
+name: Ebyte E73-2G4M08S1C
+type: board
+arch: arm
+outputs:
+  - usb
+  - ble
+url: https://ebyteiot.com/products/2-4ghz-ble-mesh-small-smd-e73-2g4m08s1c-nordic-nrf52840-module-small-size-ble-5-0
+exposes: []
