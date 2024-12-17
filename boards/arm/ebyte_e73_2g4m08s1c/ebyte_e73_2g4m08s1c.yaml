@@ -1,0 +1,16 @@
+---
+identifier: ebyte_e73_2g4m08s1c
+name: Ebyte E73-2G4M08S1C
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - adc
+  - usb_device
+  - ble
+  - ieee802154
+  - pwm
+  - watchdog
