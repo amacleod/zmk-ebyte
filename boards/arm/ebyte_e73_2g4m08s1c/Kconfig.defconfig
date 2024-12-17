@@ -1,15 +1,18 @@
 # SPDX-License-Identifier: MIT
 
-
 if BOARD_EBYTE_E73_2G4M08S1C
-
 
 config BOARD
     default "ebyte_e73_2g4m08s1c"
 
+if USB_DEVICE_STACK
+
+config USB_NRFX
+    default y
+
+endif # USB_DEVICE_STACK
 
 config BT_CTLR
     default BT
-
 
 endif # BOARD_EBYTE_E73_2G4M08S1C
