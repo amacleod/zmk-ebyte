@@ -13,43 +13,52 @@
     zephyr,sram = &sram0;
     zephyr,flash = &flash0;
   };
+};
 
 // Stuff that might need to be included at some point:
 // - &adc
-// - &gpiote
 // - &i2c0
 // - &spi1
 // - &uart0
 // - &usbd
 
-  &gpiote {
-    status = "okay";
-  };
+&gpiote {
+  status = "okay";
+};
 
-  &gpio0 {
-    status = "okay";
-  };
+&gpio0 {
+  status = "okay";
+};
 
-  &gpio1 {
-    status = "okay";
-  };
+&gpio1 {
+  status = "okay";
+};
 
-  &flash0 {
-    partitions {
-      compatible = "fixed-partitions";
-      #address-cells = <1>;
-      #size-cells = <1>;
+&uart0 {
+  status = "okay";
+  compatible = "nordic,nrf-uart";
+  current-speed = <115200>;
+  pinctrl-0 = <&uart0_default>;
+  pinctrl-1 = <&uart0_sleep>;
+  pinctrl-names = "default", "sleep";
+};
 
-      sd_partition: partition@0 {
-        reg = <0x00000000 0x00027000>;
-      };
-      code_partition: partition@27000 {
-        reg = <0x00027000 0x000c5000>;
-      };
+&flash0 {
+  partitions {
+    compatible = "fixed-partitions";
+    #address-cells = <1>;
+    #size-cells = <1>;
 
-      boot_partition: partition@f4000 {
-        reg = <0x000f4000 0x0000c000>;
-      };
+    sd_partition: partition@0 {
+      reg = <0x00000000 0x00027000>;
+    };
+    code_partition: partition@27000 {
+      reg = <0x00027000 0x000c5000>;
+    };
+
+    boot_partition: partition@f4000 {
+      reg = <0x000f4000 0x0000c000>;
     };
   };
 };
+
